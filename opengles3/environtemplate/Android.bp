@@ -1,13 +1,18 @@
 cc_binary {
-    name: "opengltemplate",
+    name: "opengltemplateesv3",
 
 //    clang: true,
 
     srcs: [
+        "common/esshader.cpp",
+        "common/esshapes.cpp",
+        "common/estransform.cpp",
+        "common/esutil.cpp",
         "main.cpp",
     ],
 
     shared_libs: [
+        "libandroid",
         "libbase",
         "liblog",
         "libcutils",
@@ -16,9 +21,12 @@ cc_binary {
         "libui",
         "libnativewindow",
         "libEGL",
-        "libGLESv1_CM",
-        "libGLESv2",
+//        "libGLESv1_CM",
+//        "libGLESv2",
+        "libGLESv3",
     ],  
+
+//    include_dirs: ["./include"],
 
     static_libs: [
     ],  
@@ -31,6 +39,6 @@ cc_binary {
         "-Wno-disabled-macro-expansion",
         "-Wno-float-equal",
         "-std=c++14",
-        "-DLOG_TAG=\"ruby\"",
+        "-DLOG_TAG=\"opengltemplateesv3\"",
     ],  
 }

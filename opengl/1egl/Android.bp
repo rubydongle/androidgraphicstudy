@@ -1,5 +1,5 @@
 cc_binary {
-    name: "opengltemplate",
+    name: "egl",
 
 //    clang: true,
 
@@ -31,6 +31,5 @@ cc_binary {
         "-Wno-disabled-macro-expansion",
         "-Wno-float-equal",
         "-std=c++14",
-        "-DLOG_TAG=\"ruby\"",
     ],  
 }
