@@ -100,6 +100,15 @@ int Init(ESContext *esContext)
     glGetProgramiv(programObject, GL_LINK_STATUS, &linked);
 
     if (!linked) {
+        GLint infoLen = 0;
+	glGetProgramiv(programObject, GL_INFO_LOG_LENGTH, &infoLen);
+	if (infoLen > 1) {
+            char* infoLog = (char*)malloc(sizeof(char) * infoLen);
+	    glGetProgramInfoLog(programObject, infoLen, NULL, infoLog);
+	    esLogMessage("Error linking program:\n%s\n", infoLog);
+	    free(infoLog);
+	}
+	glDeleteProgram(programObject);
         return FALSE;
     }
     
@@ -121,6 +130,12 @@ void Draw(ESContext *esContext)
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, vVertices);
     glEnableVertexAttribArray(0);
     glDrawArrays(GL_TRIANGLES, 0, 3);
+}
+
+void Shutdown(ESContext *esContext)
+{
+    UserData *userData = (UserData*)esContext->userData;
+    glDeleteProgram(userData->programObject);
 }
  
 int main(int argc, char* const argv[])
