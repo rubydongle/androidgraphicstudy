@@ -13,9 +13,9 @@
 #include <utils/Log.h>
 #include <utils/StrongPointer.h>
  
-#include <GLES/gl.h>
-#include <GLES/glext.h>
-#include <EGL/eglext.h>
+//#include <GLES/gl.h>
+//#include <GLES/glext.h>
+//#include <EGL/eglext.h>
 
 #include "esutil.h"
  
@@ -86,7 +86,7 @@ int main(int argc, char* const argv[])
             time++;
             glClear(GL_COLOR_BUFFER_BIT);
             eglSwapBuffers(context.eglDisplay, context.eglSurface);
- 
+
             t.show(surfaceControl).apply();
             isShow = true;
         }

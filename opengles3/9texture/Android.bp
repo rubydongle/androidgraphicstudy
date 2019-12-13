@@ -1,0 +1,44 @@
+cc_binary {
+    name: "9texturees3",
+
+//    clang: true,
+
+    srcs: [
+        "common/esshader.cpp",
+        "common/esshapes.cpp",
+        "common/estransform.cpp",
+        "common/esutil.cpp",
+        "main.cpp",
+    ],
+
+    shared_libs: [
+        "libandroid",
+        "libbase",
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libgui",
+        "libui",
+        "libnativewindow",
+        "libEGL",
+//        "libGLESv1_CM",
+//        "libGLESv2",
+        "libGLESv3",
+    ],  
+
+//    include_dirs: ["./include"],
+
+    static_libs: [
+    ],  
+
+    cppflags: [
+        "-Werror",
+        "-Wno-unused-parameter",
+        "-Wno-c++98-compat-pedantic",
+        "-Wno-float-conversion",
+        "-Wno-disabled-macro-expansion",
+        "-Wno-float-equal",
+        "-std=c++14",
+        "-DLOG_TAG=\"opengltemplateesv3\"",
+    ],  
+}
